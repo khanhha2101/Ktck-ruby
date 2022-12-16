@@ -11381,3 +11381,9 @@ footer.footer {
     padding-top: 4rem;
     padding-bottom: 4rem;
 }
+
+.bg-edit {
+    background-image: url('bg-masthead.jpg');
+    margin-top: 0px;
+    padding: 50px
+}

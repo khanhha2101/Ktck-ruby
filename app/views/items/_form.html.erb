@@ -1,0 +1,55 @@
+<style>
+    .btn-edit{
+        color: #fff;
+        background-color: rgba(255,255,255,.125);
+        border-color: rgba(255,255,255,.125);
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        padding: 9px 19px;
+        border-radius: 0.25rem;
+        text-transform: uppercase;
+        box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+        padding-left: 3rem!important;
+        padding-right: 3rem!important;
+        transition: none;
+        text-align: center;
+        vertical-align: middle;
+        /*user-select: none;*/
+        border: 1px solid transparent;
+        line-height: 1.5;
+        margin: 0;
+        height: 45px;
+        /*box-sizing: border-box;*/
+    }
+    .btn-edit:hover{
+        color: #fff;
+        border-color: rgba(255,255,255,.125);
+    }
+</style>
+
+<%= form_with(model: item) do |form| %>
+  <% if item.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+      <ul>
+        <% item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label for="formGroupExampleInput">Title</label>
+    <%= form.text_field :title, class:"form-control", id:"formGroupExampleInput" %>
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Num</label>
+    <%= form.text_field :num, class:"form-control", id:"formGroupExampleInput2" %>
+  </div>
+
+  <div style="text-align: center; margin-top: 30px">
+    <%= form.submit "Submit", class:"btn btn-edit" %>
+  </div>
+<% end %>

@@ -1,0 +1,178 @@
+<style>
+  .card-edit{
+      background-color: rgba(0,0,0,.1);
+      box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+      border: none;
+      box-sizing: border-box;
+      display: block;
+      color: rgba(255,255,255,.85);
+      letter-spacing: 0.5px;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+  }
+  .card-body-edit{
+      padding: 1.25rem;
+      box-sizing: border-box;
+      display: block;
+      font-family: 'Roboto', sans-serif;
+      font-size: 15px;
+      color: rgba(255,255,255,.85);
+      letter-spacing: 0.5px;
+      font-weight: 400;
+      line-height: 1.5;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+      min-height: 550px;
+      /*background-color: rgba(0,0,0,.9);*/
+  }
+
+  .btn-edit{
+      color: #fff;
+      background-color: rgba(255,255,255,.125);
+      border-color: rgba(255,255,255,.125);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      padding: 9px 19px;
+      border-radius: 0.25rem;
+      text-transform: uppercase;
+      box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+      padding-left: 3rem!important;
+      padding-right: 3rem!important;
+      transition: none;
+      text-align: center;
+      vertical-align: middle;
+      /*user-select: none;*/
+      border: 1px solid #adb5bd;
+      line-height: 1.5;
+      margin: 0;
+      height: 45px;
+      /*box-sizing: border-box;*/
+  }
+  .btn-edit:hover{
+      color: #fff;
+      border-color: rgba(255,255,255,.125);
+  }
+
+  .btn-sm{
+      background-color: rgba(255,255,255,.125);
+  }
+
+
+</style>
+
+<div class="bg-edit" >
+      <div class="container py-5 px-md-5 card card-edit" style=" ">
+        <div class="card-body card-body-edit" style="">
+
+          <p style="color: green"><%= notice %></p>
+
+          <h1 style="">Items</h1>
+          <br>
+
+          <div class="row" style="text-align: right; margin-bottom: 50px">
+            <form action="/search" method="get">
+            <div class="w-25 input-group ">
+              <div class="form-outline">
+                <input type="search" id="form1" class="form-control" name="title"/>
+                <label class="form-label lable-edit" for="form1" style="color: white">Search</label>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+            </form>
+          </div>
+
+          <table class=" table " style="
+          font-size: 16px;
+            color: white;
+
+          ">
+            <thead class="">
+            <tr style="
+
+            color: white;
+            ">
+              <th></th>
+              <th>Title</th>
+              <th>Num</th>
+              <!--      <th>Position</th>-->
+              <th class="w-25" scope="col" colspan="3">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @items.each do |item| %>
+              <tr class="">
+                <td>
+                  <div class="d-flex align-items-center">
+
+                  </div>
+                </td>
+                <td>
+                  <%= item.title %>
+                </td>
+                <td>
+                  <%= item.num %>
+                </td>
+
+                <td><%= link_to "Show", item, class:"btn btn-link btn-rounded btn-sm fw-bold", style: 'color: white'%></td>
+                <td><%= link_to "Edit", edit_item_path(item), class:"btn btn-link btn-rounded btn-sm fw-bold", style: 'color: white' %></td>
+                <td><%= button_to "Delete", item, method: :delete, class:"btn btn-link btn-rounded btn-sm fw-bold", style: 'color: white'%></td>
+              </tr>
+            <% end %>
+
+            <!--    <tr>-->
+            <!--      <td>-->
+            <!--        <div class="d-flex align-items-center">-->
+            <!--          <img-->
+            <!--              src="https://mdbootstrap.com/img/new/avatars/7.jpg"-->
+            <!--              class="rounded-circle"-->
+            <!--              alt=""-->
+            <!--              style="width: 45px; height: 45px"-->
+            <!--              />-->
+            <!--          <div class="ms-3">-->
+            <!--            <p class="fw-bold mb-1">Kate Hunington</p>-->
+            <!--            <p class="text-muted mb-0">kate.hunington@gmail.com</p>-->
+            <!--          </div>-->
+            <!--        </div>-->
+            <!--      </td>-->
+            <!--      <td>-->
+            <!--        <p class="fw-normal mb-1">Designer</p>-->
+            <!--        <p class="text-muted mb-0">UI/UX</p>-->
+            <!--      </td>-->
+            <!--      <td>-->
+            <!--        <span class="badge badge-warning rounded-pill d-inline">Awaiting</span>-->
+            <!--      </td>-->
+            <!--      <td>Senior</td>-->
+            <!--      <td>-->
+            <!--        <button-->
+            <!--            type="button"-->
+            <!--            class="btn btn-link btn-rounded btn-sm fw-bold"-->
+            <!--            data-mdb-ripple-color="dark"-->
+            <!--        >-->
+            <!--          Edit-->
+            <!--        </button>-->
+            <!--      </td>-->
+            <!--    </tr>-->
+            </tbody>
+          </table>
+
+          <div style="margin-top: 50px">
+            <%= link_to "New item", new_item_path, class:"btn-edit" %>
+          </div>
+        </div>
+      </div>
+<!--    </div>-->
+
+<!--  </div>-->
+
+
+</div>
+
+
+
+
+
